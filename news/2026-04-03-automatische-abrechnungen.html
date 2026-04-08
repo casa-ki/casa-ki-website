@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hausgeldabrechnungen automatisch erstellen — so funktioniert es — News — casa-KI</title>
+<meta name="description" content="So automatisieren Sie Hausgeldabrechnungen mit KI — von der Datenerfassung bis zur fertigen Abrechnung. Weniger Fehler, weniger Aufwand.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f9fc;--bg-w:#ffffff;
+  --dark:#1b2540;--loud:#0f1729;
+  --text:#1b2540;--mid:rgba(27,37,64,.7);--dim:rgba(27,37,64,.5);
+  --border:rgba(27,37,64,.08);--border-hi:rgba(27,37,64,.15);
+  --accent:#2563eb;--accent-d:rgba(37,99,235,.1);
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+  --r:16px;--r-sm:10px;--r-pill:9999px;--w:680px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg-w);color:var(--text);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.top-bar{border-bottom:1px solid var(--border);padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between}
+.top-logo{font-size:17px;font-weight:700;letter-spacing:-.4px;color:var(--loud);text-decoration:none}
+.top-logo:hover{text-decoration:none}
+.top-back{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:4px;text-decoration:none}
+.top-back:hover{color:var(--loud);text-decoration:none}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:64px 24px 80px}
+
+.article-date{font-size:12px;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.article-title{font-size:clamp(24px,4vw,36px);font-weight:700;
+  letter-spacing:-1px;color:var(--loud);line-height:1.15;margin-bottom:24px}
+.article-body{font-size:16px;line-height:1.8;color:var(--mid)}
+.article-body p{margin-bottom:20px}
+.article-body h2{font-size:20px;font-weight:700;color:var(--loud);
+  margin:36px 0 12px;letter-spacing:-.3px}
+.article-body h3{font-size:17px;font-weight:600;color:var(--loud);margin:28px 0 10px}
+.article-body ul{padding-left:20px;margin-bottom:20px}
+.article-body li{margin-bottom:8px}
+.article-body strong{color:var(--loud)}
+.article-body blockquote{border-left:3px solid var(--accent);padding:12px 20px;
+  margin:24px 0;background:var(--bg);border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-style:italic;color:var(--mid)}
+
+.article-hero{width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:32px;
+  aspect-ratio:16/7;background:var(--bg)}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.article-body figure{margin:28px 0;border-radius:var(--r-sm);overflow:hidden;
+  border:1px solid var(--border)}
+.article-body figure img{width:100%;display:block}
+.article-body figcaption{font-size:12px;color:var(--dim);padding:10px 14px;
+  background:var(--bg);border-top:1px solid var(--border)}
+.article-sources{margin-top:48px;padding-top:20px;border-top:1px solid var(--border)}
+.article-sources h3{font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--dim);margin-bottom:10px}
+.article-sources ul{list-style:none;padding:0}
+.article-sources li{font-size:11.5px;color:var(--dim);padding:3px 0;line-height:1.5}
+.article-sources li a{color:var(--accent);font-size:11px}
+
+.article-nav{display:flex;justify-content:space-between;align-items:center;
+  margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.article-nav a{font-size:14px;font-weight:500;color:var(--accent)}
+
+.footer-mini{border-top:1px solid var(--border);padding:20px 24px;
+  text-align:center;font-size:12px;color:var(--dim)}
+.footer-mini a{color:var(--dim)}
+.footer-mini a:hover{color:var(--loud)}
+
+@media(max-width:480px){
+  .wrap{padding:40px 16px 64px}
+  .article-title{font-size:clamp(20px,6vw,28px)}
+  .article-body{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="../index.html" class="top-logo">casa-KI</a>
+  <a href="../news.html" class="top-back">&larr; Alle News</a>
+</div>
+
+<div class="wrap">
+  <div class="article-date">3. April 2026</div>
+  <h1 class="article-title">Hausgeldabrechnungen automatisch erstellen — so funktioniert es</h1>
+
+  <div class="article-hero">
+    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" alt="Buchhaltung und Finanzunterlagen auf dem Schreibtisch" loading="eager">
+  </div>
+
+  <div class="article-body">
+    <p>Die jährliche Hausgeldabrechnung gehört zu den aufwendigsten und fehleranfälligsten Aufgaben in der Hausverwaltung. Für jede WEG müssen Kosten gesammelt, Verteilerschlüssel angewendet, Einzelabrechnungen erstellt und Gesamtabrechnungen zusammengestellt werden. Das kostet nicht nur Zeit — es kostet auch Nerven. Denn Fehler in der Abrechnung führen zu Rückfragen, Beschwerden und im schlimmsten Fall zu rechtlichen Auseinandersetzungen.</p>
+
+    <p>Bei casa-KI arbeiten wir daran, diesen Prozess grundlegend zu vereinfachen. Unser Ziel: Die Hausgeldabrechnung soll vom zeitintensiven Mammutprojekt zum automatisierten Routinevorgang werden. In diesem Artikel zeigen wir, wie das funktioniert und welche Schritte heute bereits automatisierbar sind.</p>
+
+    <h2>Warum die Hausgeldabrechnung so komplex ist</h2>
+    <p>Auf den ersten Blick scheint eine Hausgeldabrechnung eine reine Rechenaufgabe zu sein: Kosten erfassen, nach Schlüssel verteilen, Vorauszahlungen gegenrechnen. In der Praxis ist die Realität deutlich komplexer. Verschiedene Kostenarten erfordern unterschiedliche Verteilerschlüssel. Eigentümerwechsel innerhalb des Abrechnungszeitraums müssen korrekt berücksichtigt werden. Sonderumlagen, Instandhaltungsrücklagen und Einzelabrechnungen für Heizkosten kommen hinzu.</p>
+
+    <p>Dazu kommt: Die Datenbasis für eine korrekte Abrechnung liegt oft verteilt in verschiedenen Systemen. Bankkontoauszüge, Rechnungen von Dienstleistern, Heizkostenabrechnungen vom Messdienstleister, Beschlüsse der Eigentümerversammlung — all diese Informationen müssen zusammengeführt und abgeglichen werden.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848e968bc7?w=900&q=80" alt="Taschenrechner und Finanzunterlagen" loading="lazy">
+      <figcaption>Die Hausgeldabrechnung erfordert Präzision — und genau hier kann Automatisierung helfen.</figcaption>
+    </figure>
+
+    <h2>Schritt 1: Automatische Datenerfassung</h2>
+    <p>Der erste und vielleicht wichtigste Schritt zur automatisierten Abrechnung ist die automatische Erfassung aller relevanten Daten. Mit KI-gestützter Dokumentenerkennung können Rechnungen, Kontoauszüge und andere Belege automatisch ausgelesen und den richtigen Kostenkategorien zugeordnet werden.</p>
+
+    <p>Das funktioniert heute bereits erstaunlich zuverlässig. Moderne OCR-Systeme in Kombination mit Sprachmodellen können nicht nur den Betrag einer Rechnung erkennen, sondern auch den Lieferanten, die Kostenkategorie und das betroffene Objekt identifizieren. Eine Rechnung der Stadtreinigung wird automatisch als Müllabfuhrkosten erkannt und dem richtigen Wirtschaftsplan zugeordnet.</p>
+
+    <h2>Schritt 2: Intelligente Zuordnung und Plausibilitätsprüfung</h2>
+    <p>Sobald die Daten erfasst sind, übernimmt die KI die Zuordnung zu den korrekten Verteilerschlüsseln. Dabei greift sie auf die in der Teilungserklärung und den Beschlüssen festgelegten Regeln zurück. Gleichzeitig führt sie automatische Plausibilitätsprüfungen durch: Weichen Kosten signifikant vom Vorjahr ab? Stimmen die Gesamtsummen? Sind alle Eigentümer korrekt erfasst?</p>
+
+    <p>Diese automatische Prüfung fängt Fehler ab, bevor sie in der fertigen Abrechnung landen. Das ist ein enormer Qualitätsgewinn — denn bisher werden solche Fehler oft erst entdeckt, wenn ein aufmerksamer Eigentümer die Abrechnung prüft und eine Beanstandung einreicht.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=900&q=80" alt="Digitale Datenvisualisierung auf Tablet" loading="lazy">
+      <figcaption>Automatische Plausibilitätsprüfungen erkennen Unstimmigkeiten sofort.</figcaption>
+    </figure>
+
+    <h2>Schritt 3: Automatische Erstellung der Abrechnungsdokumente</h2>
+    <p>Auf Basis der geprüften Daten werden die Abrechnungsdokumente automatisch generiert. Jeder Eigentümer erhält eine individuelle Einzelabrechnung mit allen relevanten Positionen, dem Verteilerschlüssel und der Nachzahlung oder Gutschrift. Die Gesamtabrechnung für die WEG wird parallel erstellt.</p>
+
+    <p>Auch die begleitenden Dokumente — Erläuterungen zu einzelnen Kostenpositionen, Vergleiche zum Vorjahr, Entwicklung der Instandhaltungsrücklage — können automatisch generiert werden. Das Ergebnis ist ein vollständiges Abrechnungspaket, das nur noch geprüft und freigegeben werden muss.</p>
+
+    <h2>Was heute schon möglich ist — und was noch kommt</h2>
+    <p>Vollständig automatisierte Hausgeldabrechnungen ohne jede menschliche Prüfung sind noch Zukunftsmusik — und das ist auch gut so. Die Letztverantwortung liegt und bleibt beim Verwalter. Aber die Vorarbeit, die bisher Tage oder Wochen in Anspruch nimmt, kann auf wenige Stunden reduziert werden.</p>
+
+    <blockquote>Automatisierung bedeutet nicht, die Kontrolle abzugeben. Sie bedeutet, sich auf das Wesentliche konzentrieren zu können — die Prüfung und Freigabe statt der manuellen Dateneingabe.</blockquote>
+
+    <p>Mit casa-KI Finance arbeiten wir an genau dieser Vision. Unser Ziel ist es, den gesamten Abrechnungsprozess so weit zu automatisieren, dass Ihre Mitarbeiter nur noch prüfen und freigeben müssen. Die Datenerfassung, Zuordnung und Dokumentenerstellung übernimmt die KI.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=900&q=80" alt="Moderne Wohnanlage von außen" loading="lazy">
+      <figcaption>Für jede WEG eine korrekte Abrechnung — Automatisierung macht es möglich.</figcaption>
+    </figure>
+
+    <p>Wenn Sie erfahren möchten, wie viel Zeit Sie bei Ihren nächsten Hausgeldabrechnungen einsparen können, kontaktieren Sie uns für eine kostenlose Erstberatung. Wir zeigen Ihnen anhand Ihrer konkreten Situation, welche Automatisierungspotenziale es gibt.</p>
+
+    <div class="article-sources">
+      <h3>Bildquellen</h3>
+      <ul>
+        <li>Titelbild: „Accounting documents" von Kelly Sikkema — <a href="https://unsplash.com/photos/YK0HPwWDJ1I" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Calculator and finances" von StellrWeb — <a href="https://unsplash.com/photos/djb1whucfBY" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Digital data on tablet" von path digital — <a href="https://unsplash.com/photos/Cl-OpYWFFm0" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Residential complex" von Daniel Barnes — <a href="https://unsplash.com/photos/RKdLlTyjm5g" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="article-nav">
+    <a href="../news.html">&larr; Alle News</a>
+    <a href="../index.html#kontaktform">Erstberatung anfragen &rarr;</a>
+  </div>
+</div>
+
+<div class="footer-mini">
+  <a href="../index.html">Startseite</a> · <a href="../news.html">News</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a> · &copy; 2026 casa-KI
+</div>
+
+</body>
+</html>

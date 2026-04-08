@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSGVO und KI in der Hausverwaltung — was Sie wissen müssen — News — casa-KI</title>
+<meta name="description" content="DSGVO-konformer Einsatz von KI in der Hausverwaltung — Rechtsgrundlagen, praktische Anforderungen und wie casa-KI Datenschutz gewährleistet.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f9fc;--bg-w:#ffffff;
+  --dark:#1b2540;--loud:#0f1729;
+  --text:#1b2540;--mid:rgba(27,37,64,.7);--dim:rgba(27,37,64,.5);
+  --border:rgba(27,37,64,.08);--border-hi:rgba(27,37,64,.15);
+  --accent:#2563eb;--accent-d:rgba(37,99,235,.1);
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+  --r:16px;--r-sm:10px;--r-pill:9999px;--w:680px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg-w);color:var(--text);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.top-bar{border-bottom:1px solid var(--border);padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between}
+.top-logo{font-size:17px;font-weight:700;letter-spacing:-.4px;color:var(--loud);text-decoration:none}
+.top-logo:hover{text-decoration:none}
+.top-back{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:4px;text-decoration:none}
+.top-back:hover{color:var(--loud);text-decoration:none}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:64px 24px 80px}
+
+.article-date{font-size:12px;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.article-title{font-size:clamp(24px,4vw,36px);font-weight:700;
+  letter-spacing:-1px;color:var(--loud);line-height:1.15;margin-bottom:24px}
+.article-body{font-size:16px;line-height:1.8;color:var(--mid)}
+.article-body p{margin-bottom:20px}
+.article-body h2{font-size:20px;font-weight:700;color:var(--loud);
+  margin:36px 0 12px;letter-spacing:-.3px}
+.article-body h3{font-size:17px;font-weight:600;color:var(--loud);margin:28px 0 10px}
+.article-body ul{padding-left:20px;margin-bottom:20px}
+.article-body li{margin-bottom:8px}
+.article-body strong{color:var(--loud)}
+.article-body blockquote{border-left:3px solid var(--accent);padding:12px 20px;
+  margin:24px 0;background:var(--bg);border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-style:italic;color:var(--mid)}
+
+.article-hero{width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:32px;
+  aspect-ratio:16/7;background:var(--bg)}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.article-body figure{margin:28px 0;border-radius:var(--r-sm);overflow:hidden;
+  border:1px solid var(--border)}
+.article-body figure img{width:100%;display:block}
+.article-body figcaption{font-size:12px;color:var(--dim);padding:10px 14px;
+  background:var(--bg);border-top:1px solid var(--border)}
+.article-sources{margin-top:48px;padding-top:20px;border-top:1px solid var(--border)}
+.article-sources h3{font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--dim);margin-bottom:10px}
+.article-sources ul{list-style:none;padding:0}
+.article-sources li{font-size:11.5px;color:var(--dim);padding:3px 0;line-height:1.5}
+.article-sources li a{color:var(--accent);font-size:11px}
+
+.article-nav{display:flex;justify-content:space-between;align-items:center;
+  margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.article-nav a{font-size:14px;font-weight:500;color:var(--accent)}
+
+.footer-mini{border-top:1px solid var(--border);padding:20px 24px;
+  text-align:center;font-size:12px;color:var(--dim)}
+.footer-mini a{color:var(--dim)}
+.footer-mini a:hover{color:var(--loud)}
+
+@media(max-width:480px){
+  .wrap{padding:40px 16px 64px}
+  .article-title{font-size:clamp(20px,6vw,28px)}
+  .article-body{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="../index.html" class="top-logo">casa-KI</a>
+  <a href="../news.html" class="top-back">&larr; Alle News</a>
+</div>
+
+<div class="wrap">
+  <div class="article-date">1. April 2026</div>
+  <h1 class="article-title">DSGVO und KI in der Hausverwaltung — was Sie wissen müssen</h1>
+
+  <div class="article-hero">
+    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80" alt="Datenschutz und Sicherheit symbolisch dargestellt" loading="eager">
+  </div>
+
+  <div class="article-body">
+    <p>Künstliche Intelligenz verändert die Hausverwaltung grundlegend — das haben wir in unseren bisherigen Artikeln ausführlich beschrieben. Doch mit jeder neuen Technologie stellt sich auch die Frage: Wie steht es um den Datenschutz? Gerade in der Hausverwaltung, wo täglich sensible personenbezogene Daten verarbeitet werden, ist diese Frage nicht nur berechtigt — sie ist entscheidend.</p>
+
+    <p>In diesem Artikel erklären wir, welche datenschutzrechtlichen Anforderungen beim Einsatz von KI in der Hausverwaltung gelten, welche Fallstricke es gibt und wie wir bei casa-KI sicherstellen, dass unsere Lösung vollständig DSGVO-konform arbeitet.</p>
+
+    <h2>Warum Datenschutz in der Hausverwaltung besonders wichtig ist</h2>
+    <p>Hausverwaltungen verarbeiten eine breite Palette personenbezogener Daten: Namen, Adressen, Bankverbindungen, Mietverträge, Korrespondenz, teilweise sogar Informationen über persönliche Lebensumstände — etwa bei Härtefallanträgen oder Mietminderungen. Diese Daten unterliegen dem strengen Schutz der DSGVO und erfordern besondere Sorgfalt bei der Verarbeitung.</p>
+
+    <p>Wenn nun Künstliche Intelligenz ins Spiel kommt — etwa zur automatischen E-Mail-Klassifikation oder zur Erstellung von Antwortentwürfen — werden diese sensiblen Daten von einem zusätzlichen System verarbeitet. Das wirft berechtigte Fragen auf: Wo werden die Daten gespeichert? Wer hat Zugriff? Werden die Daten zum Training von KI-Modellen verwendet?</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=900&q=80" alt="Schloss-Symbol auf digitalem Bildschirm" loading="lazy">
+      <figcaption>Datenschutz ist kein optionales Feature — er ist die Grundlage für Vertrauen.</figcaption>
+    </figure>
+
+    <h2>Die rechtlichen Grundlagen: DSGVO und KI-Verordnung</h2>
+    <p>Für den Einsatz von KI in der Hausverwaltung sind zwei Regelwerke maßgeblich: die Datenschutz-Grundverordnung (DSGVO) und die seit 2024 geltende EU-KI-Verordnung (AI Act). Beide stellen klare Anforderungen an den Einsatz automatisierter Systeme.</p>
+
+    <p>Die wichtigsten Grundsätze der DSGVO, die beim KI-Einsatz beachtet werden müssen:</p>
+    <ul>
+      <li><strong>Zweckbindung:</strong> Personenbezogene Daten dürfen nur für den festgelegten Zweck verarbeitet werden. Eine KI, die E-Mails klassifiziert, darf die darin enthaltenen Daten nicht für andere Zwecke verwenden.</li>
+      <li><strong>Datenminimierung:</strong> Es dürfen nur die Daten verarbeitet werden, die für den jeweiligen Zweck erforderlich sind. Die KI sollte nicht mehr Informationen extrahieren als nötig.</li>
+      <li><strong>Transparenz:</strong> Betroffene müssen darüber informiert werden, dass ihre Daten durch ein KI-System verarbeitet werden. Das erfordert entsprechende Hinweise in der Datenschutzerklärung.</li>
+      <li><strong>Auftragsverarbeitung:</strong> Wenn ein externer KI-Dienstleister Daten verarbeitet, muss ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO geschlossen werden.</li>
+    </ul>
+
+    <h2>Häufige Datenschutz-Fehler beim KI-Einsatz</h2>
+    <p>In der Praxis sehen wir immer wieder, dass Hausverwaltungen KI-Tools einsetzen, ohne die datenschutzrechtlichen Implikationen ausreichend zu prüfen. Die häufigsten Fehler sind:</p>
+
+    <p>Erstens: Die Nutzung von allgemeinen KI-Chatbots wie ChatGPT für die Bearbeitung von Mieteranfragen, ohne einen AVV abzuschließen und ohne zu prüfen, ob die Daten zum Modelltraining verwendet werden. Zweitens: Die fehlende Dokumentation der KI-Verarbeitung im Verzeichnis der Verarbeitungstätigkeiten. Und drittens: Die mangelnde Information der Betroffenen über den Einsatz von KI-Systemen.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=900&q=80" alt="Dokumente und Verträge auf Schreibtisch" loading="lazy">
+      <figcaption>Rechtssicherheit erfordert klare Dokumentation und transparente Prozesse.</figcaption>
+    </figure>
+
+    <h2>Wie casa-KI Datenschutz gewährleistet</h2>
+    <p>Bei der Entwicklung von casa-KI haben wir den Datenschutz von Anfang an als zentrale Anforderung betrachtet — nicht als nachträgliche Ergänzung. Konkret bedeutet das:</p>
+
+    <ul>
+      <li><strong>Hosting in Deutschland:</strong> Alle Daten werden ausschließlich auf Servern in Deutschland verarbeitet und gespeichert. Es findet kein Datentransfer in Drittländer statt.</li>
+      <li><strong>Kein Modelltraining mit Kundendaten:</strong> Die Daten unserer Kunden werden niemals zum Training von KI-Modellen verwendet. Ihre Daten bleiben Ihre Daten.</li>
+      <li><strong>Auftragsverarbeitungsvertrag:</strong> Jeder Kunde erhält einen vollständigen AVV, der alle Anforderungen nach Art. 28 DSGVO erfüllt.</li>
+      <li><strong>Verschlüsselung:</strong> Sämtliche Daten werden sowohl bei der Übertragung als auch bei der Speicherung verschlüsselt.</li>
+      <li><strong>Löschkonzept:</strong> Ein transparentes Löschkonzept stellt sicher, dass Daten nur so lange gespeichert werden, wie es für den Verarbeitungszweck erforderlich ist.</li>
+    </ul>
+
+    <blockquote>Datenschutz ist bei casa-KI kein Kompromiss. Er ist eine Grundvoraussetzung. Wir glauben, dass KI nur dann Vertrauen verdient, wenn sie transparent und nachvollziehbar arbeitet.</blockquote>
+
+    <h2>Praktische Empfehlungen für Hausverwaltungen</h2>
+    <p>Wenn Sie als Hausverwaltung den Einsatz von KI planen, empfehlen wir folgende Schritte: Prüfen Sie zunächst, ob der Anbieter einen AVV bereitstellt und wo die Daten verarbeitet werden. Aktualisieren Sie Ihre Datenschutzerklärung und Ihr Verzeichnis der Verarbeitungstätigkeiten. Informieren Sie Ihre Mieter und Eigentümer transparent über den Einsatz von KI. Und stellen Sie sicher, dass die menschliche Letztentscheidung gewährleistet bleibt — keine vollautomatisierten Entscheidungen ohne menschliche Prüfung.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" alt="Serverraum mit blauer Beleuchtung" loading="lazy">
+      <figcaption>Deutsche Server, deutsche Datenschutzstandards — Sicherheit für Ihre Daten.</figcaption>
+    </figure>
+
+    <p>Sie haben Fragen zum Datenschutz bei casa-KI? Wir beantworten sie gerne — transparent und ausführlich. Kontaktieren Sie uns für eine kostenlose Erstberatung.</p>
+
+    <div class="article-sources">
+      <h3>Bildquellen</h3>
+      <ul>
+        <li>Titelbild: „Data privacy" von FlyD — <a href="https://unsplash.com/photos/mT7lXZPjk7U" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Digital security" von Franck — <a href="https://unsplash.com/photos/DoWZMPZ-M9s" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Documents and contracts" von Scott Graham — <a href="https://unsplash.com/photos/5fNmWej4tAA" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Server room" von Taylor Vick — <a href="https://unsplash.com/photos/M5tzZtFCOfs" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="article-nav">
+    <a href="../news.html">&larr; Alle News</a>
+    <a href="../index.html#kontaktform">Erstberatung anfragen &rarr;</a>
+  </div>
+</div>
+
+<div class="footer-mini">
+  <a href="../index.html">Startseite</a> · <a href="../news.html">News</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a> · &copy; 2026 casa-KI
+</div>
+
+</body>
+</html>
