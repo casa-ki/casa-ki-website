@@ -1032,46 +1032,39 @@ textarea.cf{min-height:120px;resize:vertical}
               <div class="em-split">
                 <div class="em-panel">
                   <div class="em-head"><span class="em-head-dot in"></span>Posteingang — 7 neue E-Mails</div>
-                  <div class="em-mail highlight" id="emIn">
+                  <div class="em-mail highlight" data-idx="0">
                     <div class="em-from">H. Müller · WE 12</div>
                     <div class="em-subj">Heizung funktioniert nicht — 3. OG, seit gestern Abend kalt. Bitte um schnelle Hilfe, meine Frau ist krank.</div>
                   </div>
-                  <div class="em-mail">
+                  <div class="em-mail" data-idx="1">
                     <div class="em-from">S. Becker · WE 03</div>
                     <div class="em-subj">Nebenkostenabrechnung 2024 — ich verstehe die Position Heizkosten nicht, können Sie mir das erklären?</div>
                   </div>
-                  <div class="em-mail">
+                  <div class="em-mail" data-idx="2">
                     <div class="em-from">K. Fischer · WE 07</div>
                     <div class="em-subj">Schlüsselbestellung — brauche 2 Nachschlüssel für Hauseingangstür, wann kann ich die abholen?</div>
                   </div>
-                  <div class="em-mail">
+                  <div class="em-mail" data-idx="3">
                     <div class="em-from">M. Weber · Eigentümer</div>
                     <div class="em-subj">WEG-Versammlung — bitte Protokoll der letzten Sitzung zusenden, ich war verhindert.</div>
                   </div>
-                  <div class="em-mail">
+                  <div class="em-mail" data-idx="4">
                     <div class="em-from">Hauswart Schmitz</div>
                     <div class="em-subj">Treppenhausbeleuchtung 2. OG defekt — Leuchtmittel muss getauscht werden, welchen Typ bestellen?</div>
                   </div>
-                  <div class="em-mail">
+                  <div class="em-mail" data-idx="5">
                     <div class="em-from">R. Scholz · WE 09</div>
                     <div class="em-subj">Wasserschaden im Bad — Decke tropft seit heute Morgen, Nachbar oben drüber wohl undichte Leitung.</div>
                   </div>
-                  <div class="em-mail">
+                  <div class="em-mail" data-idx="6">
                     <div class="em-from">Versicherung AG</div>
                     <div class="em-subj">Police Nr. HV-2024-881 — neue Beitragsrechnung für Gebäudeversicherung Gartenstr. 4 anbei.</div>
                   </div>
                 </div>
                 <div class="em-panel">
-                  <div class="em-head"><span class="em-head-dot out"></span>KI-Antwort generiert</div>
-                  <div class="em-reply" id="emReply">
-                    <div class="em-reply-head">⚡ Entwurf für H. Müller<span class="em-reply-badge">KI-generiert</span></div>
-                    Sehr geehrter Herr Müller,<br><br>
-                    vielen Dank für Ihre Meldung. Wir haben Ihren Vorgang (#4821) als Schadensmeldung erfasst und an unser Haustechnik-Team weitergeleitet.<br><br>
-                    Ein Techniker wird sich innerhalb von 24 Stunden bei Ihnen melden.<br><br>
-                    Mit freundlichen Grüßen<br>
-                    Ihre Hausverwaltung
-                  </div>
-                  <div class="em-typing" id="emTyping">
+                  <div class="em-head"><span class="em-head-dot out"></span>KI-Antwort · Vorgang erstellt</div>
+                  <div class="em-reply on" id="emReply"></div>
+                  <div class="em-typing" id="emTyping" style="display:none">
                     <span class="em-typing-dot"></span>
                     <span class="em-typing-dot"></span>
                     <span class="em-typing-dot"></span>
@@ -2003,18 +1996,41 @@ textarea.cf{min-height:120px;resize:vertical}
       },delay*i);
     });
   }
-  // Mail: typing indicator then reply appears
-  function animateMail(){
+  // Mail: clickable mails with 7 auto-replies
+  var mailReplies=[
+    {head:'⚡ Vorgang #4821 · Schadensmeldung',body:'Sehr geehrter Herr Müller,<br><br>vielen Dank für Ihre Nachricht. Wir haben Ihre Schadensmeldung zur Heizung in WE 12, 3. OG, unter Vorgang #4821 erfasst und als dringend eingestuft.<br><br>Unser Haustechnik-Team wurde bereits informiert und wird sich innerhalb von 24 Stunden direkt bei Ihnen melden, um einen Termin zu vereinbaren. Wir bitten die Unannehmlichkeiten zu entschuldigen.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'},
+    {head:'⚡ Vorgang #4822 · NK-Anfrage',body:'Sehr geehrte Frau Becker,<br><br>vielen Dank für Ihre Rückfrage zur Nebenkostenabrechnung 2024. Wir haben Ihren Vorgang #4822 erfasst.<br><br>Die Position „Heizkosten" setzt sich aus den Lieferkosten des Energieversorgers sowie dem verbrauchsabhängigen Verteilerschlüssel zusammen. Wir senden Ihnen die detaillierte Aufschlüsselung als Anlage zu dieser E-Mail.<br><br>Sollten Sie weitere Fragen haben, stehen wir Ihnen gerne zur Verfügung.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'},
+    {head:'⚡ Vorgang #4823 · Schlüsselbestellung',body:'Sehr geehrter Herr Fischer,<br><br>Ihre Anfrage zur Schlüsselbestellung für die Hauseingangstür WE 07 wurde unter Vorgang #4823 erfasst.<br><br>Wir haben die Bestellung von 2 Nachschlüsseln beim Schließdienst veranlasst. Die Schlüssel können voraussichtlich ab Donnerstag im Verwaltungsbüro abgeholt werden. Wir informieren Sie, sobald diese vorliegen.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'},
+    {head:'⚡ Vorgang #4824 · Protokollversand',body:'Sehr geehrter Herr Weber,<br><br>vielen Dank für Ihre Nachricht. Wir haben Ihren Vorgang #4824 erfasst.<br><br>Das Protokoll der WEG-Versammlung vom 12.03.2024 finden Sie als PDF-Anlage in dieser E-Mail. Die gefassten Beschlüsse sind auf Seite 3–5 zusammengefasst. Bei Rückfragen stehen wir Ihnen gerne zur Verfügung.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'},
+    {head:'⚡ Vorgang #4825 · Instandhaltung',body:'Sehr geehrter Herr Schmitz,<br><br>vielen Dank für die Meldung zur Treppenhausbeleuchtung im 2. OG. Vorgang #4825 wurde erfasst.<br><br>Laut unserer Dokumentation handelt es sich um LED-Röhren Typ T8, 120 cm, 18W neutralweiß. Wir haben die Bestellung beim Lieferanten bereits veranlasst und informieren Sie, sobald die Leuchtmittel eingetroffen sind.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'},
+    {head:'⚡ Vorgang #4826 · Wasserschaden',body:'Sehr geehrter Herr Scholz,<br><br>vielen Dank für Ihre Meldung. Wir haben den Wasserschaden in WE 09 unter Vorgang #4826 als dringend erfasst.<br><br>Unser Notdienst-Installateur wurde sofort kontaktiert und wird sich schnellstmöglich bei Ihnen melden. Bitte drehen Sie, falls möglich, den Hauptwasserhahn in Ihrer Wohnung ab. Wir haben parallel den Eigentümer der darüberliegenden Einheit informiert.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'},
+    {head:'⚡ Vorgang #4827 · Versicherung',body:'Sehr geehrte Damen und Herren,<br><br>vielen Dank für die Zusendung der neuen Beitragsrechnung zur Gebäudeversicherung (Police HV-2024-881) für das Objekt Gartenstraße 4.<br><br>Wir haben die Rechnung unter Vorgang #4827 erfasst und zur buchhalterischen Prüfung weitergeleitet. Die Zahlung wird fristgerecht veranlasst. Bei Abweichungen melden wir uns.<br><br>Mit freundlichen Grüßen<br>Ihre Hausverwaltung'}
+  ];
+  function showReply(idx){
     var reply=document.getElementById('emReply');
     var typing=document.getElementById('emTyping');
-    if(!reply||!typing) return;
+    var mails=document.querySelectorAll('.em-mail[data-idx]');
+    if(!reply) return;
+    mails.forEach(function(m){m.classList.toggle('highlight',parseInt(m.dataset.idx)===idx);});
     reply.classList.remove('on');
     typing.style.display='inline-flex';
     setTimeout(function(){
       typing.style.display='none';
+      var r=mailReplies[idx];
+      reply.innerHTML='<div class="em-reply-head">'+r.head+'<span class="em-reply-badge">KI-generiert</span></div>'+r.body;
       reply.classList.add('on');
-    },1200);
+    },800);
   }
+  document.querySelectorAll('.em-mail[data-idx]').forEach(function(m){
+    m.addEventListener('click',function(){
+      showReply(parseInt(m.dataset.idx));
+      clearInterval(autoTimer);
+      setTimeout(function(){
+        autoTimer=setInterval(function(){showScreen((cur+1)%3);},6000);
+      },20000);
+    });
+  });
+  function animateMail(){showReply(0);}
   // Abrechnung: rows appear sequentially then match badge
   function animateAbrechnung(){
     var rows=document.querySelectorAll('#abDoc .ab-row');
