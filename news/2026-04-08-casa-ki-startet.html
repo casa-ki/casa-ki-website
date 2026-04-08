@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>casa-KI startet — News — casa-KI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f9fc;--bg-w:#ffffff;
+  --dark:#1b2540;--loud:#0f1729;
+  --text:#1b2540;--mid:rgba(27,37,64,.7);--dim:rgba(27,37,64,.5);
+  --border:rgba(27,37,64,.08);--border-hi:rgba(27,37,64,.15);
+  --accent:#2563eb;--accent-d:rgba(37,99,235,.1);
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+  --r:16px;--r-sm:10px;--r-pill:9999px;--w:680px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg-w);color:var(--text);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.top-bar{border-bottom:1px solid var(--border);padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between}
+.top-logo{font-size:17px;font-weight:700;letter-spacing:-.4px;color:var(--loud);text-decoration:none}
+.top-logo:hover{text-decoration:none}
+.top-back{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:4px;text-decoration:none}
+.top-back:hover{color:var(--loud);text-decoration:none}
+
+.wrap{max-width:var(--w);margin:0 auto;padding:64px 24px 80px}
+
+.article-date{font-size:12px;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.article-title{font-size:clamp(24px,4vw,36px);font-weight:700;
+  letter-spacing:-1px;color:var(--loud);line-height:1.15;margin-bottom:24px}
+.article-body{font-size:16px;line-height:1.8;color:var(--mid)}
+.article-body p{margin-bottom:20px}
+.article-body h2{font-size:20px;font-weight:700;color:var(--loud);
+  margin:36px 0 12px;letter-spacing:-.3px}
+.article-body h3{font-size:17px;font-weight:600;color:var(--loud);margin:28px 0 10px}
+.article-body ul{padding-left:20px;margin-bottom:20px}
+.article-body li{margin-bottom:8px}
+.article-body strong{color:var(--loud)}
+.article-body blockquote{border-left:3px solid var(--accent);padding:12px 20px;
+  margin:24px 0;background:var(--bg);border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-style:italic;color:var(--mid)}
+
+/* hero image */
+.article-hero{width:100%;border-radius:var(--r);overflow:hidden;margin-bottom:32px;
+  aspect-ratio:16/7;background:var(--bg)}
+.article-hero img{width:100%;height:100%;object-fit:cover;display:block}
+/* inline images */
+.article-body figure{margin:28px 0;border-radius:var(--r-sm);overflow:hidden;
+  border:1px solid var(--border)}
+.article-body figure img{width:100%;display:block}
+.article-body figcaption{font-size:12px;color:var(--dim);padding:10px 14px;
+  background:var(--bg);border-top:1px solid var(--border)}
+/* image sources */
+.article-sources{margin-top:48px;padding-top:20px;border-top:1px solid var(--border)}
+.article-sources h3{font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--dim);margin-bottom:10px}
+.article-sources ul{list-style:none;padding:0}
+.article-sources li{font-size:11.5px;color:var(--dim);padding:3px 0;line-height:1.5}
+.article-sources li a{color:var(--accent);font-size:11px}
+
+.article-nav{display:flex;justify-content:space-between;align-items:center;
+  margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.article-nav a{font-size:14px;font-weight:500;color:var(--accent)}
+
+.footer-mini{border-top:1px solid var(--border);padding:20px 24px;
+  text-align:center;font-size:12px;color:var(--dim)}
+.footer-mini a{color:var(--dim)}
+.footer-mini a:hover{color:var(--loud)}
+
+@media(max-width:480px){
+  .wrap{padding:40px 16px 64px}
+  .article-title{font-size:clamp(20px,6vw,28px)}
+  .article-body{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="../index.html" class="top-logo">casa-KI</a>
+  <a href="../news.html" class="top-back">← Alle News</a>
+</div>
+
+<div class="wrap">
+  <div class="article-date">8. April 2026</div>
+  <h1 class="article-title">casa-KI startet — KI-Automatisierung für die Hausverwaltung</h1>
+
+  <div class="article-hero">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Modernes Büro mit Technologie" loading="eager">
+  </div>
+
+  <div class="article-body">
+    <p>Heute ist es soweit: casa-KI geht offiziell an den Start. Nach Monaten intensiver Entwicklung und enger Zusammenarbeit mit Hausverwaltungen aus ganz Deutschland haben wir eine Plattform gebaut, die einen klaren Zweck verfolgt — die operative Hausverwaltung spürbar zu entlasten.</p>
+
+    <h2>Warum casa-KI?</h2>
+    <p>Hausverwaltungen verlieren jeden Tag Stunden an Routinearbeit: E-Mails lesen, Vorgänge anlegen, Standardantworten formulieren, Dokumente zuordnen. Das sind Aufgaben, die keine menschliche Entscheidung brauchen — aber trotzdem jeden Tag erledigt werden müssen.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80" alt="Team arbeitet an Laptops" loading="lazy">
+      <figcaption>Digitale Zusammenarbeit — der Arbeitsalltag in modernen Hausverwaltungen verändert sich.</figcaption>
+    </figure>
+
+    <p>Genau hier setzt casa-KI an. Unsere KI liest eingehende E-Mails, erkennt automatisch den Vorgangstyp, identifiziert Mieter und Objekt, erstellt den Vorgang in der bestehenden Software und generiert einen rechtssicheren Antwortentwurf. Das Ergebnis: Ihr Team gibt nur noch frei.</p>
+
+    <h2>Was uns anders macht</h2>
+    <p>Wir ersetzen keine bestehende Software — wir erweitern sie. casa-KI arbeitet mit dem, was Sie bereits haben. Keine Datenmigration, kein Systemwechsel, keine Schulungen. Integration in bestehende Prozesse, ab 49 €/Monat.</p>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80" alt="Wohngebäude in Deutschland" loading="lazy">
+      <figcaption>Hausverwaltung in Deutschland — eine Branche mit enormem Automatisierungspotenzial.</figcaption>
+    </figure>
+
+    <h2>Sechs Produkte. Eine Mission.</h2>
+    <ul>
+      <li><strong>casa-KI Flow</strong> — Prozessautomatisierung ab 49 €/Monat</li>
+      <li><strong>casa-KI Connect</strong> — Schnittstellen & Software erweitern</li>
+      <li><strong>casa-KI Finance</strong> — Buchhaltung & Abrechnungen automatisieren</li>
+      <li><strong>casa-KI Presence</strong> — Professionelle Websites für Hausverwaltungen</li>
+      <li><strong>casa-KI Build</strong> — Individuelle Software-Entwicklung</li>
+      <li><strong>casa-KI Rüstzeug</strong> — IT-Ausstattung & Infrastruktur</li>
+    </ul>
+
+    <blockquote>Wir haben uns entschieden, die KI-Ära aktiv mitzugestalten — nicht als Zuschauer, sondern als Treiber. Für eine Branche, die diesen Schritt längst verdient hat.</blockquote>
+
+    <p>Wir freuen uns auf den Austausch. Wenn Sie wissen möchten, was bei Ihnen automatisierbar ist — schreiben Sie uns. Die Erstberatung ist kostenlos.</p>
+
+    <div class="article-sources">
+      <h3>Bildquellen</h3>
+      <ul>
+        <li>Titelbild: „Modern office space" von Nastuh Abootalebi — <a href="https://unsplash.com/photos/yWwob8kwOCk" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Team collaboration" von Jason Goodman — <a href="https://unsplash.com/photos/Oalh2MojUuk" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+        <li>„Residential building" von Tierra Mallorca — <a href="https://unsplash.com/photos/rgJ1J8SDEAY" target="_blank" rel="noopener">Unsplash</a> (Unsplash License, free to use)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="article-nav">
+    <a href="../news.html">← Alle News</a>
+    <a href="../index.html#kontaktform">Erstberatung anfragen →</a>
+  </div>
+</div>
+
+<div class="footer-mini">
+  <a href="../index.html">Startseite</a> · <a href="../news.html">News</a> · <a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html">Datenschutz</a> · © 2026 casa-KI
+</div>
+
+</body>
+</html>
