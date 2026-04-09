@@ -18,10 +18,15 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="casa-KI — KI-Automatisierung für Hausverwaltungen">
 <meta name="twitter:description" content="Wir automatisieren die operative Hausverwaltung mit KI. Ab 49 €/Monat.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="three.min.js"></script>
 <style>
+/* ═══════════ LOCAL FONTS ═══════════ */
+@font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/inter-300.ttf') format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/inter-400.ttf') format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/inter-500.ttf') format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/inter-600.ttf') format('truetype')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/inter-700.ttf') format('truetype')}
+
 
 /* ═══════════ RESET & TOKENS ═══════════ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -2344,43 +2349,15 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 })();
 </script>
 
-<!-- Cookie Banner -->
+<!-- Cookie Banner — nur technisch notwendige Cookies, kein Tracking -->
 <div class="cookie-banner" id="cookieBanner">
   <div class="cookie-inner">
     <div class="cookie-text">
-      <div class="cookie-title">Wir respektieren Ihre Privatsphäre</div>
-      <div class="cookie-desc">Wir verwenden Cookies, um unsere Website zu optimieren und Ihnen ein bestmögliches Erlebnis zu bieten. Essentielle Cookies sind für den Betrieb der Seite notwendig. Optionale Cookies helfen uns, die Nutzung zu analysieren und unsere Inhalte zu verbessern. <a href="datenschutz.html">Mehr erfahren</a></div>
-      <div class="cookie-details" id="cookieDetails">
-        <div class="cookie-detail">
-          <div class="cd-info">
-            <span class="cd-name">Essentielle Cookies</span>
-            <span class="cd-desc">Notwendig für grundlegende Funktionen der Website. Immer aktiv.</span>
-          </div>
-          <label class="cd-toggle"><input type="checkbox" checked disabled><span class="cd-slider"></span></label>
-        </div>
-        <div class="cookie-detail">
-          <div class="cd-info">
-            <span class="cd-name">Analyse-Cookies</span>
-            <span class="cd-desc">Helfen uns zu verstehen, wie Besucher unsere Website nutzen.</span>
-          </div>
-          <label class="cd-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cd-slider"></span></label>
-        </div>
-        <div class="cookie-detail">
-          <div class="cd-info">
-            <span class="cd-name">Marketing-Cookies</span>
-            <span class="cd-desc">Werden verwendet, um Ihnen relevante Inhalte und Angebote zu zeigen.</span>
-          </div>
-          <label class="cd-toggle"><input type="checkbox" id="cookieMarketing"><span class="cd-slider"></span></label>
-        </div>
-        <div style="margin-top:14px;display:flex;justify-content:flex-end">
-          <button class="cookie-btn cookie-accept" id="cookieSaveSettings">Auswahl speichern</button>
-        </div>
-      </div>
+      <div class="cookie-title">Hinweis zu Cookies</div>
+      <div class="cookie-desc">Diese Website verwendet ausschließlich technisch notwendige Cookies und lokale Speicherung (localStorage) für grundlegende Funktionen wie Ihre Cookie-Einstellung. Es findet kein Tracking, keine Analyse und keine Weitergabe von Daten an Dritte statt. <a href="datenschutz.html">Datenschutzerklärung lesen</a></div>
     </div>
     <div class="cookie-btns">
-      <button class="cookie-btn cookie-reject" id="cookieReject">Ablehnen</button>
-      <button class="cookie-btn cookie-accept" id="cookieAcceptAll">Alle akzeptieren</button>
-      <button class="cookie-settings" id="cookieSettingsBtn">Einstellungen</button>
+      <button class="cookie-btn cookie-accept" id="cookieAcceptAll">Verstanden</button>
     </div>
   </div>
 </div>
@@ -2391,37 +2368,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   if(!banner) return;
   if(localStorage.getItem('casa-ki-cookies')) return;
   setTimeout(function(){ banner.classList.add('show'); }, 1000);
-
-  var details = document.getElementById('cookieDetails');
-  var analyticsToggle = document.getElementById('cookieAnalytics');
-  var marketingToggle = document.getElementById('cookieMarketing');
-
   document.getElementById('cookieAcceptAll').addEventListener('click', function(){
     localStorage.setItem('casa-ki-cookies', JSON.stringify({
-      essential:true, analytics:true, marketing:true, date:new Date().toISOString()
+      essential:true, date:new Date().toISOString()
     }));
     banner.classList.remove('show');
-  });
-
-  document.getElementById('cookieReject').addEventListener('click', function(){
-    localStorage.setItem('casa-ki-cookies', JSON.stringify({
-      essential:true, analytics:false, marketing:false, date:new Date().toISOString()
-    }));
-    banner.classList.remove('show');
-  });
-
-  document.getElementById('cookieSaveSettings').addEventListener('click', function(){
-    localStorage.setItem('casa-ki-cookies', JSON.stringify({
-      essential:true,
-      analytics:analyticsToggle.checked,
-      marketing:marketingToggle.checked,
-      date:new Date().toISOString()
-    }));
-    banner.classList.remove('show');
-  });
-
-  document.getElementById('cookieSettingsBtn').addEventListener('click', function(){
-    details.classList.toggle('open');
   });
 })();
 
