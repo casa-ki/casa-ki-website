@@ -746,6 +746,14 @@ ul{list-style:none}
 select.cf{appearance:none;cursor:pointer}
 select.cf option{background:#1a1a2e}
 textarea.cf{min-height:120px;resize:vertical}
+.cf-consent{display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  font-size:12.5px;color:rgba(255,255,255,.4);line-height:1.5;
+  padding:4px 0;user-select:none}
+.cf-consent input[type="checkbox"]{width:16px;height:16px;flex-shrink:0;margin-top:1px;
+  accent-color:var(--accent);cursor:pointer}
+.cf-consent a{color:var(--accent);text-decoration:underline}
+.cf-consent a:hover{color:#60a5fa}
+.cf-consent-error{color:#ef4444;font-size:11px;margin-top:-4px;display:none}
 .cfbtn{width:100%;height:46px;border:none;border-radius:var(--r-pill);
   background:#fff;color:var(--loud);font-family:var(--sans);
   font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s}
@@ -1836,7 +1844,7 @@ textarea.cf{min-height:120px;resize:vertical}
     <div class="ct-inner">
       <h2 class="ct-h2 reveal">Kostenlose Erstberatung —<br>unverbindlich, persönlich, konkret.</h2>
       <p class="ct-sub reveal d1">Kein Verkaufsdruck. Kein Standardgespräch.<br>Wir analysieren Ihre Situation und zeigen Ihnen ehrlich, was Sinn macht.</p>
-      <form class="cform reveal d2" onsubmit="return false">
+      <form class="cform reveal d2" id="contactForm" onsubmit="return false">
         <div class="crow">
           <input class="cf" type="text" placeholder="Ihr Name" required>
           <input class="cf" type="text" placeholder="Unternehmen">
@@ -1861,7 +1869,11 @@ textarea.cf{min-height:120px;resize:vertical}
           </select>
         </div>
         <textarea class="cf" placeholder="Kurze Nachricht …"></textarea>
-        <button type="submit" class="cfbtn">Erstberatung anfragen →</button>
+        <label class="cf-consent">
+          <input type="checkbox" id="cfConsent" required>
+          <span>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
+        </label>
+        <button type="submit" class="cfbtn" id="cfSubmit">Erstberatung anfragen →</button>
         <p class="cf-note">Kostenlos & unverbindlich · Antwort innerhalb von 24 Stunden · Entwickelt in Deutschland</p>
       </form>
     </div>
@@ -2410,6 +2422,28 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 
   document.getElementById('cookieSettingsBtn').addEventListener('click', function(){
     details.classList.toggle('open');
+  });
+})();
+
+/* ══ CONTACT FORM CONSENT ══ */
+(function(){
+  var form = document.getElementById('contactForm');
+  var consent = document.getElementById('cfConsent');
+  var btn = document.getElementById('cfSubmit');
+  if(!form || !consent || !btn) return;
+  btn.addEventListener('click', function(e){
+    if(!consent.checked){
+      e.preventDefault();
+      consent.style.outline='2px solid #ef4444';
+      consent.style.outlineOffset='2px';
+      consent.parentElement.style.color='#fca5a5';
+      setTimeout(function(){
+        consent.style.outline='';
+        consent.style.outlineOffset='';
+        consent.parentElement.style.color='';
+      },2000);
+      return false;
+    }
   });
 })();
 </script>
