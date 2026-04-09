@@ -2331,46 +2331,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   document.querySelectorAll('.reveal').forEach(function(el){ob.observe(el);});
 })();
 
-/* ══ COOKIE BANNER ══ */
-(function(){
-  var banner = document.getElementById('cookieBanner');
-  if(!banner) return;
-  // check if already decided
-  if(localStorage.getItem('casa-ki-cookies')) return;
-  // show after 1 second
-  setTimeout(function(){ banner.classList.add('show'); }, 1000);
-
-  var details = document.getElementById('cookieDetails');
-  var analyticsToggle = document.getElementById('cookieAnalytics');
-  var marketingToggle = document.getElementById('cookieMarketing');
-
-  document.getElementById('cookieAcceptAll').addEventListener('click', function(){
-    localStorage.setItem('casa-ki-cookies', JSON.stringify({
-      essential: true, analytics: true, marketing: true, date: new Date().toISOString()
-    }));
-    banner.classList.remove('show');
-  });
-
-  document.getElementById('cookieReject').addEventListener('click', function(){
-    localStorage.setItem('casa-ki-cookies', JSON.stringify({
-      essential: true, analytics: false, marketing: false, date: new Date().toISOString()
-    }));
-    banner.classList.remove('show');
-  });
-
-  document.getElementById('cookieSaveSettings').addEventListener('click', function(){
-    localStorage.setItem('casa-ki-cookies', JSON.stringify({
-      essential: true,
-      analytics: analyticsToggle.checked,
-      marketing: marketingToggle.checked,
-      date: new Date().toISOString()
-    }));
-    banner.classList.remove('show');
-  });
-
-  document.getElementById('cookieSettingsBtn').addEventListener('click', function(){
-    details.classList.toggle('open');
-  });
 })();
 </script>
 
@@ -2414,6 +2374,47 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     </div>
   </div>
 </div>
+
+<script>
+(function(){
+  var banner = document.getElementById('cookieBanner');
+  if(!banner) return;
+  if(localStorage.getItem('casa-ki-cookies')) return;
+  setTimeout(function(){ banner.classList.add('show'); }, 1000);
+
+  var details = document.getElementById('cookieDetails');
+  var analyticsToggle = document.getElementById('cookieAnalytics');
+  var marketingToggle = document.getElementById('cookieMarketing');
+
+  document.getElementById('cookieAcceptAll').addEventListener('click', function(){
+    localStorage.setItem('casa-ki-cookies', JSON.stringify({
+      essential:true, analytics:true, marketing:true, date:new Date().toISOString()
+    }));
+    banner.classList.remove('show');
+  });
+
+  document.getElementById('cookieReject').addEventListener('click', function(){
+    localStorage.setItem('casa-ki-cookies', JSON.stringify({
+      essential:true, analytics:false, marketing:false, date:new Date().toISOString()
+    }));
+    banner.classList.remove('show');
+  });
+
+  document.getElementById('cookieSaveSettings').addEventListener('click', function(){
+    localStorage.setItem('casa-ki-cookies', JSON.stringify({
+      essential:true,
+      analytics:analyticsToggle.checked,
+      marketing:marketingToggle.checked,
+      date:new Date().toISOString()
+    }));
+    banner.classList.remove('show');
+  });
+
+  document.getElementById('cookieSettingsBtn').addEventListener('click', function(){
+    details.classList.toggle('open');
+  });
+})();
+</script>
 
 </body>
 </html>
