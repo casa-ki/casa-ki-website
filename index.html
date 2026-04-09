@@ -754,6 +754,60 @@ textarea.cf{min-height:120px;resize:vertical}
   line-height:1.6;text-align:center}
 
 
+/* ═══════════ COOKIE BANNER ═══════════ */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:var(--bg-w);border-top:1px solid var(--border);
+  box-shadow:0 -4px 24px rgba(27,37,64,.08);
+  padding:20px 24px;display:none;
+  animation:cookieUp .4s ease-out}
+.cookie-banner.show{display:block}
+@keyframes cookieUp{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
+.cookie-inner{max-width:var(--w);margin:0 auto;
+  display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.cookie-text{flex:1;min-width:260px}
+.cookie-title{font-size:14px;font-weight:700;color:var(--loud);margin-bottom:6px}
+.cookie-desc{font-size:13px;color:var(--dim);line-height:1.6}
+.cookie-desc a{color:var(--accent);text-decoration:underline}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0;align-items:center;align-self:center}
+.cookie-btn{height:38px;padding:0 20px;border-radius:var(--r-sm);
+  font-size:13px;font-weight:600;cursor:pointer;border:none;
+  font-family:var(--sans);transition:filter .15s,transform .15s}
+.cookie-accept{background:var(--accent);color:#fff}
+.cookie-accept:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.cookie-reject{background:transparent;color:var(--dim);
+  border:1px solid var(--border)}
+.cookie-reject:hover{background:var(--bg);color:var(--loud)}
+.cookie-settings{font-size:12px;color:var(--dim);cursor:pointer;
+  background:none;border:none;font-family:var(--sans);text-decoration:underline;
+  padding:0}
+.cookie-settings:hover{color:var(--loud)}
+/* detail panel */
+.cookie-details{display:none;margin-top:16px;padding-top:16px;
+  border-top:1px solid var(--border)}
+.cookie-details.open{display:block}
+.cookie-detail{display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;border-bottom:1px solid rgba(27,37,64,.04)}
+.cookie-detail:last-child{border-bottom:none}
+.cd-info{display:flex;flex-direction:column;gap:2px}
+.cd-name{font-size:13px;font-weight:600;color:var(--loud)}
+.cd-desc{font-size:11.5px;color:var(--dim)}
+.cd-toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+.cd-toggle input{opacity:0;width:0;height:0}
+.cd-slider{position:absolute;inset:0;background:var(--border);border-radius:11px;
+  cursor:pointer;transition:background .2s}
+.cd-slider::before{content:'';position:absolute;width:16px;height:16px;
+  left:3px;bottom:3px;background:#fff;border-radius:50%;transition:transform .2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.cd-toggle input:checked + .cd-slider{background:var(--accent)}
+.cd-toggle input:checked + .cd-slider::before{transform:translateX(18px)}
+.cd-toggle input:disabled + .cd-slider{opacity:.5;cursor:not-allowed}
+@media(max-width:480px){
+  .cookie-inner{flex-direction:column;gap:14px}
+  .cookie-btns{width:100%;justify-content:stretch}
+  .cookie-btn{flex:1}
+}
+
+
 /* ═══════════ FOOTER ═══════════ */
 .footer{background:var(--bg);border-top:1px solid var(--border);padding:56px 0 28px}
 .ft-inner{display:flex;justify-content:space-between;flex-wrap:wrap;
@@ -2276,6 +2330,90 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   },{threshold:.06,rootMargin:'0px 0px -60px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ob.observe(el);});
 })();
+
+/* ══ COOKIE BANNER ══ */
+(function(){
+  var banner = document.getElementById('cookieBanner');
+  if(!banner) return;
+  // check if already decided
+  if(localStorage.getItem('casa-ki-cookies')) return;
+  // show after 1 second
+  setTimeout(function(){ banner.classList.add('show'); }, 1000);
+
+  var details = document.getElementById('cookieDetails');
+  var analyticsToggle = document.getElementById('cookieAnalytics');
+  var marketingToggle = document.getElementById('cookieMarketing');
+
+  document.getElementById('cookieAcceptAll').addEventListener('click', function(){
+    localStorage.setItem('casa-ki-cookies', JSON.stringify({
+      essential: true, analytics: true, marketing: true, date: new Date().toISOString()
+    }));
+    banner.classList.remove('show');
+  });
+
+  document.getElementById('cookieReject').addEventListener('click', function(){
+    localStorage.setItem('casa-ki-cookies', JSON.stringify({
+      essential: true, analytics: false, marketing: false, date: new Date().toISOString()
+    }));
+    banner.classList.remove('show');
+  });
+
+  document.getElementById('cookieSaveSettings').addEventListener('click', function(){
+    localStorage.setItem('casa-ki-cookies', JSON.stringify({
+      essential: true,
+      analytics: analyticsToggle.checked,
+      marketing: marketingToggle.checked,
+      date: new Date().toISOString()
+    }));
+    banner.classList.remove('show');
+  });
+
+  document.getElementById('cookieSettingsBtn').addEventListener('click', function(){
+    details.classList.toggle('open');
+  });
+})();
 </script>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <div class="cookie-title">Wir respektieren Ihre Privatsphäre</div>
+      <div class="cookie-desc">Wir verwenden Cookies, um unsere Website zu optimieren und Ihnen ein bestmögliches Erlebnis zu bieten. Essentielle Cookies sind für den Betrieb der Seite notwendig. Optionale Cookies helfen uns, die Nutzung zu analysieren und unsere Inhalte zu verbessern. <a href="datenschutz.html">Mehr erfahren</a></div>
+      <div class="cookie-details" id="cookieDetails">
+        <div class="cookie-detail">
+          <div class="cd-info">
+            <span class="cd-name">Essentielle Cookies</span>
+            <span class="cd-desc">Notwendig für grundlegende Funktionen der Website. Immer aktiv.</span>
+          </div>
+          <label class="cd-toggle"><input type="checkbox" checked disabled><span class="cd-slider"></span></label>
+        </div>
+        <div class="cookie-detail">
+          <div class="cd-info">
+            <span class="cd-name">Analyse-Cookies</span>
+            <span class="cd-desc">Helfen uns zu verstehen, wie Besucher unsere Website nutzen.</span>
+          </div>
+          <label class="cd-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cd-slider"></span></label>
+        </div>
+        <div class="cookie-detail">
+          <div class="cd-info">
+            <span class="cd-name">Marketing-Cookies</span>
+            <span class="cd-desc">Werden verwendet, um Ihnen relevante Inhalte und Angebote zu zeigen.</span>
+          </div>
+          <label class="cd-toggle"><input type="checkbox" id="cookieMarketing"><span class="cd-slider"></span></label>
+        </div>
+        <div style="margin-top:14px;display:flex;justify-content:flex-end">
+          <button class="cookie-btn cookie-accept" id="cookieSaveSettings">Auswahl speichern</button>
+        </div>
+      </div>
+    </div>
+    <div class="cookie-btns">
+      <button class="cookie-btn cookie-reject" id="cookieReject">Ablehnen</button>
+      <button class="cookie-btn cookie-accept" id="cookieAcceptAll">Alle akzeptieren</button>
+      <button class="cookie-settings" id="cookieSettingsBtn">Einstellungen</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
